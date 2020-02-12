@@ -9,10 +9,14 @@ Simple webapp to get media from Instagram post.
 input instagram post url and click get.
 
 ## Installation
-npm install
+```bash
+$ npm install
+```
 
 ## Running development mode
-npm run dev
+```bash
+$ npm run dev
+```
 
 ## LICENSE
 MIT Licensed
