@@ -1,8 +1,14 @@
 const unirest = require('unirest');
 
 const getMedia = (url) => {
-    url = url.replace(/\/$/, '')
-    return unirest.get(`${url}/?__a=1`).then(data => {
+    let liknfilter = /\/p\/([^\/]+)\/$/;
+
+    if(url.match(liknfilter) !== null){
+        var shortcode = url.match(liknfilter)[1];
+    } else {
+        return null
+    }
+    return unirest.get(`https://www.instagram.com/p/${shortcode}/?__a=1`).then(data => {
         try {
             if(data.status == 200 && data.body.graphql) {
                 return data.body
