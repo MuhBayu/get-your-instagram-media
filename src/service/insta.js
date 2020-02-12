@@ -1,10 +1,9 @@
 const unirest = require('unirest');
 
 const getMedia = (url) => {
-    let liknfilter = /\/p\/([^\/]+)\/$/;
-
-    if(url.match(liknfilter) !== null){
-        var shortcode = url.match(liknfilter)[1];
+    let url_split= url.replace(/\/$/i, '').split('/')
+    if(url_split && url_split.length > 4) {
+        var shortcode = url_split[4]
     } else {
         return null
     }
