@@ -39,6 +39,7 @@ class Index extends React.Component {
       this.setState({ig_url:e.target.value})
   }
   handleSubmit(e) {
+    this.setState({ig_medias: []});
     e.preventDefault();
     fetch('/api?ig_url='+this.state.ig_url).then(data => data.json()).then(data => {
         if(data.success) {
